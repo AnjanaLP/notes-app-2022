@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esbuild": "^0.14.14"
+    "esbuild": "^0.14.14",
+    "jest": "^27.4.7"
   }
 }
