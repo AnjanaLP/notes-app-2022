@@ -8,7 +8,7 @@ const NotesModel = require('./notesModel');
 
 describe('NotesView', () => {
 
-  it('displays each note in a div', () => {
+  it('displays all the notes', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const notesModel = new NotesModel();
@@ -20,5 +20,21 @@ describe('NotesView', () => {
     notesView.displayNotes();
 
     expect(document.querySelectorAll('div.note').length).toEqual(2);
+  });
+
+  it("adds a note", () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const notesModel = new NotesModel();
+    const notesView = new NotesView(notesModel);
+
+    const inputEl = document.querySelector('#add-note-input');
+    const buttonEl = document.querySelector('#add-note-button');
+
+    inputEl.value = 'New note title';
+    buttonEl.click();
+
+    expect(document.querySelectorAll('div.note').length).toEqual(1);
+    expect(document.querySelectorAll('div.note')[0].innerText).toEqual('New note title');
   });
 });
