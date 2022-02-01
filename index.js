@@ -4,5 +4,10 @@
 //
 // on Mac (using Chrome), use Option+Command+J to open the console and see this message.
 const NotesModel = require('./notesModel');
-const notes = new NotesModel();
-console.log(notes.getNotes());
+const NotesView = require('./notesView');
+
+const notesModel = new NotesModel();
+const notesView = new NotesView(notesModel);
+
+notesModel.addNote('This is an example note');
+notesView.displayNotes();
