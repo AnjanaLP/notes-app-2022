@@ -11,13 +11,13 @@ describe('NotesView', () => {
   it('displays all the notes', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
-    const notesModel = new NotesModel();
-    const notesView = new NotesView(notesModel);
+    const model = new NotesModel();
+    const view = new NotesView(model);
 
-    notesModel.addNote('Buy milk');
-    notesModel.addNote('Go to the gym');
+    model.addNote('Buy milk');
+    model.addNote('Go to the gym');
 
-    notesView.displayNotes();
+    view.displayNotes();
 
     expect(document.querySelectorAll('div.note').length).toEqual(2);
   });
@@ -25,8 +25,8 @@ describe('NotesView', () => {
   it("adds a note", () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
-    const notesModel = new NotesModel();
-    const notesView = new NotesView(notesModel);
+    const model = new NotesModel();
+    const view = new NotesView(model);
 
     const inputEl = document.querySelector('#add-note-input');
     const buttonEl = document.querySelector('#add-note-button');
@@ -41,14 +41,14 @@ describe('NotesView', () => {
   it('clears the previous list of notes before displaying all the notes ', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
-    const notesModel = new NotesModel();
-    const notesView = new NotesView(notesModel);
+    const model = new NotesModel();
+    const view = new NotesView(model);
 
-    notesModel.addNote('Buy milk');
-    notesView.displayNotes();
+    model.addNote('Buy milk');
+    view.displayNotes();
 
-    notesModel.addNote('Go to the gym');
-    notesView.displayNotes();
+    model.addNote('Go to the gym');
+    view.displayNotes();
 
     expect(document.querySelectorAll('div.note').length).toEqual(2);
   });
@@ -56,8 +56,8 @@ describe('NotesView', () => {
   it("clears the text input after clicking the 'Add note' button", () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
-    const notesModel = new NotesModel();
-    const notesView = new NotesView(notesModel);
+    const model = new NotesModel();
+    const view = new NotesView(model);
 
     const inputEl = document.querySelector('#add-note-input');
     const buttonEl = document.querySelector('#add-note-button');

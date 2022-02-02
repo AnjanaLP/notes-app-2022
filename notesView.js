@@ -2,8 +2,9 @@ const NotesModel = require('./notesModel');
 
 class NotesView {
 
-  constructor(notesModel = new NotesModel()) {
-    this.notesModel = notesModel;
+  constructor(model, api) {
+    this.model = model;
+    this.api = api;
     this.mainContainerEl = document.querySelector('#main-container');
     this.addNoteButtonEl = document.querySelector('#add-note-button');
 
@@ -16,7 +17,7 @@ class NotesView {
   displayNotes() {
     document.querySelectorAll('.note').forEach(element => element.remove());
 
-    const all_the_notes = this.notesModel.getNotes();
+    const all_the_notes = this.model.getNotes();
 
     all_the_notes.forEach(note => {
       const noteEl = document.createElement("div");
@@ -28,7 +29,7 @@ class NotesView {
 
   addNewNote(newNote) {
     document.querySelector('#add-note-input').value = "";
-    this.notesModel.addNote(newNote);
+    this.model.addNote(newNote);
     this.displayNotes();
   }
 }

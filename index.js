@@ -5,9 +5,13 @@
 // on Mac (using Chrome), use Option+Command+J to open the console and see this message.
 const NotesModel = require('./notesModel');
 const NotesView = require('./notesView');
+const NotesApi = require('./notesApi');
 
-const notesModel = new NotesModel();
-const notesView = new NotesView(notesModel);
+const api = new NotesApi();
+const model = new NotesModel();
+const view = new NotesView(model, api);
 
-notesModel.addNote('This is an example note');
-notesView.displayNotes();
+api.loadNotes((notes) => {
+  model.setNotes(notes);
+  view.displayNotes();
+});
