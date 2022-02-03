@@ -29,6 +29,7 @@ class NotesView {
 
   addNewNote(newNote) {
     document.querySelector('#add-note-input').value = "";
+    this.api.createNote(newNote);
     this.model.addNote(newNote);
     this.displayNotes();
   }

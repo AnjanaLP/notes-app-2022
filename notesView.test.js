@@ -5,6 +5,8 @@
 const fs = require('fs');
 const NotesView = require('./notesView');
 const NotesModel = require('./notesModel');
+const NotesApi = require('./notesApi');
+require('jest-fetch-mock').enableMocks()
 
 describe('NotesView', () => {
 
@@ -12,7 +14,8 @@ describe('NotesView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel();
-    const view = new NotesView(model);
+    const api = new NotesApi();
+    const view = new NotesView(model, api);
 
     model.addNote('Buy milk');
     model.addNote('Go to the gym');
@@ -26,7 +29,8 @@ describe('NotesView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel();
-    const view = new NotesView(model);
+    const api = new NotesApi();
+    const view = new NotesView(model, api);
 
     const inputEl = document.querySelector('#add-note-input');
     const buttonEl = document.querySelector('#add-note-button');
@@ -42,7 +46,8 @@ describe('NotesView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel();
-    const view = new NotesView(model);
+    const api = new NotesApi();
+    const view = new NotesView(model, api);
 
     model.addNote('Buy milk');
     view.displayNotes();
@@ -57,7 +62,8 @@ describe('NotesView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const model = new NotesModel();
-    const view = new NotesView(model);
+    const api = new NotesApi();
+    const view = new NotesView(model, api);
 
     const inputEl = document.querySelector('#add-note-input');
     const buttonEl = document.querySelector('#add-note-button');
