@@ -23,6 +23,19 @@ class NotesApi {
       console.error('Error:', error);
     });
   }
+
+  deleteNotes() {
+    fetch('http://localhost:3000/notes', {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
 }
 
 module.exports = NotesApi;

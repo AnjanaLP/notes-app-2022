@@ -38,9 +38,13 @@
           this.api = api2;
           this.mainContainerEl = document.querySelector("#main-container");
           this.addNoteButtonEl = document.querySelector("#add-note-button");
+          this.resetNotesButtonEl = document.querySelector("#reset-notes-button");
           this.addNoteButtonEl.addEventListener("click", () => {
             const newNote = document.querySelector("#add-note-input").value;
             this.addNewNote(newNote);
+          });
+          this.resetNotesButtonEl.addEventListener("click", () => {
+            this.resetNotes();
           });
         }
         displayNotes() {
@@ -57,6 +61,11 @@
           document.querySelector("#add-note-input").value = "";
           this.api.createNote(newNote);
           this.model.addNote(newNote);
+          this.displayNotes();
+        }
+        resetNotes() {
+          this.api.deleteNotes();
+          this.model.reset();
           this.displayNotes();
         }
       };
@@ -80,6 +89,15 @@
               "Content-Type": "application/json"
             },
             body: JSON.stringify({ "content": `${newNote}` })
+          }).then((response) => response.json()).then((data) => {
+            console.log("Success:", data);
+          }).catch((error) => {
+            console.error("Error:", error);
+          });
+        }
+        deleteNotes() {
+          fetch("http://localhost:3000/notes", {
+            method: "DELETE"
           }).then((response) => response.json()).then((data) => {
             console.log("Success:", data);
           }).catch((error) => {

@@ -39,3 +39,8 @@ button {
   color: white;
   cursor: pointer;
 }
+
+#reset-notes-button {
+  background: red;
+  margin-top: 10px;
+}

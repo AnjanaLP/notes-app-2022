@@ -7,10 +7,15 @@ class NotesView {
     this.api = api;
     this.mainContainerEl = document.querySelector('#main-container');
     this.addNoteButtonEl = document.querySelector('#add-note-button');
+    this.resetNotesButtonEl = document.querySelector('#reset-notes-button');
 
     this.addNoteButtonEl.addEventListener('click', () => {
       const newNote = document.querySelector('#add-note-input').value;
       this.addNewNote(newNote);
+    });
+
+    this.resetNotesButtonEl.addEventListener('click', () => {
+      this.resetNotes();
     });
   }
 
@@ -31,6 +36,12 @@ class NotesView {
     document.querySelector('#add-note-input').value = "";
     this.api.createNote(newNote);
     this.model.addNote(newNote);
+    this.displayNotes();
+  }
+
+  resetNotes() {
+    this.api.deleteNotes();
+    this.model.reset();
     this.displayNotes();
   }
 }
