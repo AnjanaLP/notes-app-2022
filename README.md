@@ -8,3 +8,5 @@ It shows how JavaScript code:
 * can make HTTP requests without reloading the page (using fetch)
 
 The app has been build using a  minimal code structure for separation of concerns.
+
+## Video Demo
