@@ -15,7 +15,7 @@ The app has been built using a  minimal code structure for separation of concern
 Visit https://i.imgur.com/nYwtX5n.mp4
 
 ## Technologies used
-* CSS
-* HTML
-* Jest
 * JavaScript
+* Jest
+* HTML
+* CSS
