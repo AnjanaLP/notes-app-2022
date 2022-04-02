@@ -7,6 +7,34 @@ It shows how JavaScript code:
 * can manipulate the page content and handle user interaction
 * can make HTTP requests without reloading the page (using fetch)
 
-The app has been build using a  minimal code structure for separation of concerns.
+The app has been built using a  minimal code structure for separation of concerns.
+
+![Screenshot](https://i.imgur.com/lH6Kq8m.png?1)
 
 ## Video Demo
+Visit https://i.imgur.com/nYwtX5n.mp4
+
+## How to use locally
+Clone the repo to your local machine, change into the directory, then:
+```
+$ npm install -g esbuild
+$ npm install
+$ npm run build
+```
+Keep the build task running in the background. In the terminal, open a new tab in the same directory, then:
+
+To use the app in your browser:
+```
+$ open index.html
+```
+
+To run the tests:
+```
+$ jest
+```
+
+## Technologies used
+* CSS
+* HTML
+* Jest
+* JavaScript
