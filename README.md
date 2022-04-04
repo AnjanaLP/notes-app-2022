@@ -1,6 +1,6 @@
 # Notes App
 
-A client-side single-page app written in pure JavaScript to allow a user to manage a list of their 'to-do' notes. Built in a test-driven manner using Jest. Uses esbuild as the build tool.
+A client-side single-page app written in pure JavaScript to allow a user to manage a list of their 'to-do' notes. Built in a test-driven manner using Jest. Uses esbuild as the build tool and a simple backend web server made using express.
 
 It shows how JavaScript code:
 * is built and loaded by a web browser
