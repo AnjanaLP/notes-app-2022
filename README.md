@@ -12,7 +12,7 @@ The app has been built using a  minimal code structure for separation of concern
 ![Screenshot](https://i.imgur.com/lH6Kq8m.png?1)
 
 ## Video Demo
-Visit https://i.imgur.com/nYwtX5n.mp4
+Click [here](https://i.imgur.com/nYwtX5n.mp4) for a video demonstration.
 
 ## Technologies used
 * JavaScript
